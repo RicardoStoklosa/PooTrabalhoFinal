@@ -4,7 +4,7 @@
 
 <div class="box1">
 <br/>
-<h2>Yupii! You has the SiFraS Framework!</h2>
+<h2>Roger!</h2>
 
 <br/>
 <br/>
