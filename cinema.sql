@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.7.4
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 24-Nov-2016 às 12:20
--- Versão do servidor: 10.1.13-MariaDB
--- PHP Version: 5.6.23
+-- Generation Time: 20-Nov-2017 às 23:13
+-- Versão do servidor: 10.1.26-MariaDB
+-- PHP Version: 7.1.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -17,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `sifras`
+-- Database: `cinema`
 --
 
 -- --------------------------------------------------------
@@ -40,6 +42,17 @@ CREATE TABLE `clients` (
 
 INSERT INTO `clients` (`id`, `name`, `phone`, `email`, `obs`) VALUES
 ('201609070945439997', 'Customer Number One', '55 9999-9999', 'customer@fakeemail.com', '');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `filmes`
+--
+
+CREATE TABLE `filmes` (
+  `nome` varchar(50) NOT NULL,
+  `sinopse` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -103,6 +116,7 @@ ALTER TABLE `profiles`
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email` (`email`,`username`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
