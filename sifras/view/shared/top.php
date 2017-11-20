@@ -47,8 +47,6 @@
 				<ul>
 					<li><a <?php ($_GET['contr']=='panel' ? print ('class="active"') : print ("")) ?> href="<?php egetUrl('index'); ?>"><img style="height:16px" src="images/panel.png" style="vertical-align: middle;"/>&nbsp;&nbsp; Painel</a></li>
 					<li><a <?php ($_GET['contr']=='clients' ? print( 'class="active"') : print( "")) ?> href="<?php egetUrl('clients'); ?>"><img style="height:16px" src="images/client.png"/>&nbsp;&nbsp; Clientes</a></li>
-					<li><a <?php ($_GET['contr']=='posts' ? print( 'class="active"') : print( "")) ?> href="<?php egetUrl('posts'); ?>"><img style="height:16px" src="images/client.png"/>&nbsp;&nbsp; Clientes</a></li>
-					
 					<li><hr style="border-bottom:1px solid rgb(60,60,60)"/></li>
 
 				</ul>

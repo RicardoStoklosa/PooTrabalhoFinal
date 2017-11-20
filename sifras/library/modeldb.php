@@ -113,7 +113,7 @@ class ModelDB {
         global $_dbHandle;
         $this->connect();
         $r = mysql_query($qr, $_dbHandle);
-        echo mysql_error();
+        //echo mysql_error();
         return $r;
     }
     
