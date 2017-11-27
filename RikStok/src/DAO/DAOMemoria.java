@@ -27,29 +27,39 @@ public class DAOMemoria implements DAOFacade{
         }
         @Override
 	public Admin verificarCredenciais(String login, String senha) {
-            if( administrador.getLogin().compareTo(login)==0  &&  administrador.getSenha().compareTo(senha)==0 )
+            if( administrador.getLogin().compareTo(login)==0  &&  administrador.getSenha().compareTo(senha)==0 ) {
                 return administrador;
+            }
             return null;
 	}
         @Override
 	public boolean addProduto(Produto produto) {
-            return true;
+            for( Produto aux : produtos){
+                if( aux.getId() == produto.getId() )
+                    return false;
+            }
+            return produtos.add( produto );
+            
 	}
         @Override
 	public boolean rmProduto(Produto produto) {
-            return true;
+            return produtos.remove( produto );
 	}
         @Override
 	public boolean editProduto(Produto produto) {
-            return true;
+            for( Produto aux : produtos ){
+                if( aux.getId() == produto.getId() ){
+                    produtos.remove( aux );
+                    produtos.add( produto );
+                    return true;
+            }
+        }
+        return false;
 	}
         @Override
 	public ArrayList<Produto> getProdutos() {
-		return null;
+		return produtos;
 	}
-        @Override
-	public ArrayList<Admin> getAdmin() {
-		return null;
-	}
+       
 
 }

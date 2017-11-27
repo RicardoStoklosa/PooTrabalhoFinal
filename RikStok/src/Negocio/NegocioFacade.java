@@ -17,24 +17,36 @@ public class NegocioFacade {
             return adm;
         }
         
-	public boolean addProduto(Produto produto) {
-		return true;
+	public Operacao addProduto(Produto produto) {
+		Operacao status = new Operacao();
+                if(produto.getQuantidade() < 0)
+                    status.anexarErro("Quantidade Invalida");
+                
+                for(Produto aux : registros.getProdutos()){
+                    if(produto.getId() == aux.getId()){
+                        status.anexarErro("Código de livro já registrado");
+                        break;
+                    }
+                }
+                if( status.getStatus() ){
+                    boolean res = registros.addProduto( produto );
+                    if( res == false )
+                        status.anexarErro("Erro ao registrar dados do livro!");
+                    }
+                
+                return status;
 	}
 
-	public boolean rmProduto(Produto produto) {
-		return true;
-	}
 
-	public boolean editProduto(Produto produto) {
-		return true;
-	}
-
-	public ArrayList<Produto> getProdutos() {
-		return null;
-	}
-
-	public ArrayList<Admin> getAdmin(Admin adm) {
-		return null;
+	public Operacao editProduto(Produto produto) {
+            Operacao status = new Operacao();
+            
+            if( status.getStatus() ){
+                boolean res = registros.addProduto( produto );
+                if( res == false )
+                    status.anexarErro("Erro ao registrar dados do livro!");
+            }
+            return status;
 	}
 
 }
