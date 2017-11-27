@@ -4,7 +4,7 @@ import EDA.*;
 import java.util.ArrayList;
 
 public interface DAOFacade {
-
+        public void init();
 	public boolean verificarCredenciais(String login, String senha);
 	public boolean addProduto(Produto produto);
 	public boolean rmProduto(Produto produto);

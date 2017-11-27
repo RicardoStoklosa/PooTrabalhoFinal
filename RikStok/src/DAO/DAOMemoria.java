@@ -18,15 +18,16 @@ public class DAOMemoria implements DAOFacade{
             return memoria;
 	}
         
-        public void DAOMemoria() {
-            init();     
+        private void DAOMemoria() {
+            init();    
+            
 	}
         
-        private void init(){
+        public void init(){
             produtos.add( new Produto(1, "Teclado Gamer", 10) );
             produtos.add( new Produto(2, "Teclado asd", 10) );
             produtos.add( new Produto(3, "Teclado asd", 10) );
-            System.out.println(produtos.size());
+            System.out.println("oiadsa");
         }
         @Override
 	public boolean verificarCredenciais(String login, String senha) {
@@ -71,6 +72,7 @@ public class DAOMemoria implements DAOFacade{
     public ArrayList<Admin> getAdmin() {
         return admin;
     }
+    
         
        
 

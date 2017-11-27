@@ -24,10 +24,10 @@ public class Menu extends javax.swing.JFrame {
      */
     public Menu() {
         initComponents();
-        ArrayList<Produto> livros = NegocioFacade.getProdutos();
+        ArrayList<Produto> produtos = NegocioFacade.getProdutos();
         DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
-        System.out.println(livros.size());
-        for( Produto aux : livros ){
+        System.out.println(produtos.size());
+        for( Produto aux : produtos ){
             Object linha[] = { aux.getId(), aux.getNome(), aux.getQuantidade()};
             
             modelo.addRow( linha );

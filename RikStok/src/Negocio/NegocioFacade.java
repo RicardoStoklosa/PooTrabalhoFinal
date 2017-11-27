@@ -48,7 +48,9 @@ public class NegocioFacade {
             }
             return status;
 	}
-        
+        public static void init(){
+            registros.init();
+        }
         public static ArrayList<Produto> getProdutos( ){
             return registros.getProdutos();
         }  
