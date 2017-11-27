@@ -23,17 +23,19 @@ public class DAOMemoria implements DAOFacade{
 	}
         
         private void init(){
-            administrador = new Admin("udesc", "785b10a64d56af61e802913738e7d567");
+            produtos.add( new Produto(1, "Teclado Gamer", 10) );
+            produtos.add( new Produto(2, "Teclado asd", 10) );
+            produtos.add( new Produto(3, "Teclado asd", 10) );
+            System.out.println(produtos.size());
         }
         @Override
 	public boolean verificarCredenciais(String login, String senha) {
             String log = "udesc";
             String pass = "785b10a64d56af61e802913738e7d567";
             if( log.compareTo(login)==0  &&  pass.compareTo(senha)==0 ) {
-                System.out.println("certo");
+                
                 return true;
             }
-            System.out.println("errado");
             return false;
 	}
         @Override

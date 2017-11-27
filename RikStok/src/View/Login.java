@@ -99,6 +99,7 @@ public class Login extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void acaoLogin(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acaoLogin
@@ -127,6 +128,7 @@ public class Login extends javax.swing.JFrame {
         }
         else{
             Main.tela_menu = new Menu();
+            Main.tela_menu.setExtendedState(Menu.MAXIMIZED_BOTH);
             Main.tela_menu.setVisible(true);
             this.dispose();
         }
@@ -166,6 +168,7 @@ public class Login extends javax.swing.JFrame {
                 new Login().setVisible(true);
             }
         });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

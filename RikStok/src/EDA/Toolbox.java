@@ -30,7 +30,6 @@ public class Toolbox {
             System.err.println("O algoritmo de criptografia não é válido");
             e.printStackTrace();
         }
-        System.out.printf("%s",result);
         return result;
     }
     

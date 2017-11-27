@@ -2,11 +2,11 @@ package EDA;
 
 public class Produto {
 
-	private String nome;
+	private final String nome;
 
-	private int id;
+	private final int id;
 
-	private int quantidade;
+	private final int quantidade;
         
         public Produto (int cod,String name,int quant){
             id = cod;
