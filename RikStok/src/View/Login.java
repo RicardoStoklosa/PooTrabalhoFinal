@@ -3,6 +3,7 @@ package View;
 import EDA.*;
 import javax.swing.JOptionPane;
 import Negocio.NegocioFacade;
+import java.awt.event.KeyEvent;
 /**
  *
  * @author ricardo
@@ -37,6 +38,12 @@ public class Login extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Ubuntu", 0, 36)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Login");
+
+        jSenha.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jSenhaKeyPressed(evt);
+            }
+        });
 
         jLabel2.setText("Login:");
 
@@ -98,8 +105,8 @@ public class Login extends javax.swing.JFrame {
         String nome = jLogin.getText();
         char password[] = jSenha.getPassword();
         String pass = String.valueOf( password );
-        Main.adm = NegocioFacade.login(nome, pass);
-        if( Main.adm == null ){
+        boolean adm = NegocioFacade.login(nome, pass);
+        if( adm != true ){
             JOptionPane.showMessageDialog(this, "O nome de usuário e/ou a senha não estão corretas!", "Erro no Login", JOptionPane.ERROR_MESSAGE);
         }
         else{
@@ -108,6 +115,23 @@ public class Login extends javax.swing.JFrame {
             this.dispose();
         }
     }//GEN-LAST:event_acaoLogin
+
+    private void jSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jSenhaKeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            String nome = jLogin.getText();
+        char password[] = jSenha.getPassword();
+        String pass = String.valueOf( password );
+        boolean adm = NegocioFacade.login(nome, pass);
+        if( adm != true ){
+            JOptionPane.showMessageDialog(this, "O nome de usuário e/ou a senha não estão corretas!", "Erro no Login", JOptionPane.ERROR_MESSAGE);
+        }
+        else{
+            Main.tela_menu = new Menu();
+            Main.tela_menu.setVisible(true);
+            this.dispose();
+        }
+        }
+    }//GEN-LAST:event_jSenhaKeyPressed
 
     /**
      * @param args the command line arguments
@@ -152,4 +176,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton jOkLogin;
     private javax.swing.JPasswordField jSenha;
     // End of variables declaration//GEN-END:variables
+
+    
 }

@@ -11,13 +11,13 @@ public class NegocioFacade {
         
         private NegocioFacade(){}
 
-	public static Admin login(String login, String senha){
+	public static boolean login(String login, String senha){
             senha = Toolbox.encrypt( senha );
-            Admin adm = registros.verificarCredenciais( login, senha );
+            boolean adm = registros.verificarCredenciais( login, senha );
             return adm;
         }
         
-	public Operacao addProduto(Produto produto) {
+	public static Operacao addProduto(Produto produto) {
 		Operacao status = new Operacao();
                 if(produto.getQuantidade() < 0)
                     status.anexarErro("Quantidade Invalida");
