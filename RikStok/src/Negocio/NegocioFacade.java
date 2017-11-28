@@ -33,7 +33,6 @@ public class NegocioFacade {
                     if( res == false )
                         status.anexarErro("Erro ao registrar dados do livro!");
                     }
-                
                 return status;
 	}
 
