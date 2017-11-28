@@ -24,34 +24,40 @@ public class NegocioFacade {
                 
                 for(Produto aux : registros.getProdutos()){
                     if(produto.getId() == aux.getId()){
-                        status.anexarErro("Código de livro já registrado");
+                        status.anexarErro("Código de produto já registrado");
                         break;
                     }
                 }
                 if( status.getStatus() ){
                     boolean res = registros.addProduto( produto );
                     if( res == false )
-                        status.anexarErro("Erro ao registrar dados do livro!");
+                        status.anexarErro("Erro ao registrar dados do Produto!");
                     }
                 return status;
 	}
 
 
-	public Operacao editProduto(Produto produto) {
+	public static Operacao editProduto(Produto produto) {
             Operacao status = new Operacao();
+            if(produto.getQuantidade() < 0)
+                    status.anexarErro("Quantidade Invalida");
             
-            if( status.getStatus() ){
-                boolean res = registros.addProduto( produto );
-                if( res == false )
-                    status.anexarErro("Erro ao registrar dados do livro!");
-            }
             return status;
 	}
+        public static void rmProduto(Produto produto) {
+            registros.rmProduto(produto);
+        }
         public static void init(){
             registros.init();
         }
-        public static ArrayList<Produto> getProdutos( ){
+        public static ArrayList<Produto> getProdutos(){  
             return registros.getProdutos();
-        }  
-
+        }
+        public static Produto getProdutosId(int id){
+            for( Produto produto : NegocioFacade.registros.getProdutos() ){
+                if( produto.getId() == id )
+                    return produto;   
+            }
+            return null;
+        }
 }

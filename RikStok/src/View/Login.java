@@ -128,7 +128,7 @@ public class Login extends javax.swing.JFrame {
         }
         else{
             Main.tela_menu = new Menu();
-            Main.tela_menu.setExtendedState(Menu.MAXIMIZED_BOTH);
+            //Main.tela_menu.setExtendedState(Menu.MAXIMIZED_BOTH);
             Main.tela_menu.setVisible(true);
             this.dispose();
         }
