@@ -27,7 +27,6 @@ public class DAOMemoria implements DAOFacade{
             produtos.add( new Produto(1, "Teclado Gamer", 10) );
             produtos.add( new Produto(2, "Teclado asd", 10) );
             produtos.add( new Produto(3, "Teclado asd", 10) );
-            System.out.println("oiadsa");
         }
         @Override
 	public boolean verificarCredenciais(String login, String senha) {

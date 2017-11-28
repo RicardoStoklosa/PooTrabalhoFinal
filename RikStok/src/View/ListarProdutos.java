@@ -24,7 +24,6 @@ public class ListarProdutos extends javax.swing.JFrame {
         initComponents();
         ArrayList<Produto> produtos = NegocioFacade.getProdutos();
         DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
-        System.out.println(produtos.size());
         for( Produto aux : produtos ){
             Object linha[] = { aux.getId(), aux.getNome(), aux.getQuantidade()};
             
