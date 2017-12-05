@@ -39,8 +39,11 @@ public class NegocioFacade {
 
 	public static Operacao editProduto(Produto produto) {
             Operacao status = new Operacao();
+            boolean bol = registros.editProduto(produto);
             if(produto.getQuantidade() < 0)
                     status.anexarErro("Quantidade Invalida");
+            if(!bol)
+                    status.anexarErro("Produto nao existe");
             
             return status;
 	}

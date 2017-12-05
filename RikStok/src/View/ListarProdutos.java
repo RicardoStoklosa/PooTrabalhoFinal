@@ -216,7 +216,9 @@ public class ListarProdutos extends javax.swing.JFrame {
     }//GEN-LAST:event_jQuitActionPerformed
 
     private void jAddProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jAddProdutoActionPerformed
+        this.dispose();
         new AddProduto().setVisible(true);
+        
     }//GEN-LAST:event_jAddProdutoActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
