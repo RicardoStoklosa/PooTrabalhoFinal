@@ -33,23 +33,6 @@ public class Toolbox {
         return result;
     }
     
-    /**
-     * Limpa o buffer de leitura em uma linha, caso exista.
-     * @param teclado o Scanner a ser utilizado na verificação
-     */
-    public static void clearBuffer( Scanner teclado ){
-        teclado.skip("\n");
-    }
     
-    /**
-     * Este método limpa o buffer e aguarda até o usuário pressionar enter.
-     * Se algum texto for digitado junto, este será ignorado.
-     * @param teclado o Scanner a ser utilizado na operação
-     */
-    public static void pressEnter( Scanner teclado ){
-        System.out.print("Pressione ENTER para continuar...");
-        clearBuffer( teclado );
-        teclado.nextLine();
-    }
   
 }
