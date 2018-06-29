@@ -8,7 +8,7 @@ public class DAOMemoria implements DAOFacade{
         
         private Admin administrador;
 	private ArrayList<Produto> produtos = new ArrayList();
-	private ArrayList<Admin> admin  = new ArrayList();
+	private ArrayList<U> usuarios  = new ArrayList();
 
 	
 
