@@ -4,6 +4,7 @@ public class Operacao {
     private boolean status;
     private StringBuilder erro;
     
+    
     public Operacao( ){
         status = true;
     }
