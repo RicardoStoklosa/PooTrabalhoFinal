@@ -1,5 +1,8 @@
 package EDA;
 //TODO import javax.persistence.*;
+
+import Exceção.QuantInvalida;
+
 public class Produto {
     
     private String nome;
@@ -45,7 +48,8 @@ public class Produto {
         return id;
     }
 
-    public int getQuantidade() {
+    public int getQuantidade(){
+        
         return quantidade;
     }
 

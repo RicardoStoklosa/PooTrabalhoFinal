@@ -11,7 +11,7 @@ public interface DAOFacade {
 	public boolean editProduto(Produto produto);
 	public ArrayList<Produto> getProdutos();
         public ArrayList<User>getUser();
-        public boolean verifCredenciais(String login, String senha);
+        public int verifCredenciais(String login, String senha);
         
 
 }

@@ -6,7 +6,7 @@ public class Estoque extends User {
 
 	private String senha;
 
-	public void Admin(String login, String senha) {
+	public Estoque(String login, String senha) {
             this.login = login;
             this.senha = senha;
 	}

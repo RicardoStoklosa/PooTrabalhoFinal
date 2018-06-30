@@ -16,6 +16,22 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
     }
+    public  void check(){
+        String nome = jLogin.getText();
+        char password[] = jSenha.getPassword();
+        String pass = String.valueOf( password );
+        int chs = NegocioFacade.login(nome, pass);
+        if( chs == -1 ){
+            JOptionPane.showMessageDialog(this, "O nome de usuário e/ou a senha não estão corretas!", "Erro no Login", JOptionPane.ERROR_MESSAGE);
+        }
+        else if(chs == 0){
+            //TODO
+            this.dispose();
+        }
+        else{
+            //TODO limpar tela
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -103,35 +119,13 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void acaoLogin(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acaoLogin
-        String nome = jLogin.getText();
-        char password[] = jSenha.getPassword();
-        String pass = String.valueOf( password );
-        boolean adm = NegocioFacade.login(nome, pass);
-        if( adm != true ){
-            JOptionPane.showMessageDialog(this, "O nome de usuário e/ou a senha não estão corretas!", "Erro no Login", JOptionPane.ERROR_MESSAGE);
-        }
-        else{
-            Main.tela_menu = new Menu();
-            Main.tela_menu.setVisible(true);
-            this.dispose();
-        }
+        check();
     }//GEN-LAST:event_acaoLogin
 
     private void jSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jSenhaKeyPressed
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
             String nome = jLogin.getText();
-        char password[] = jSenha.getPassword();
-        String pass = String.valueOf( password );
-        boolean adm = NegocioFacade.login(nome, pass);
-        if( adm != true ){
-            JOptionPane.showMessageDialog(this, "O nome de usuário e/ou a senha não estão corretas!", "Erro no Login", JOptionPane.ERROR_MESSAGE);
-        }
-        else{
-            Main.tela_menu = new Menu();
-            //Main.tela_menu.setExtendedState(Menu.MAXIMIZED_BOTH);
-            Main.tela_menu.setVisible(true);
-            this.dispose();
-        }
+            check();
         }
     }//GEN-LAST:event_jSenhaKeyPressed
 
@@ -160,6 +154,7 @@ public class Login extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

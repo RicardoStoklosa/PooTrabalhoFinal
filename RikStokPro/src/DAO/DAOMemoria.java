@@ -32,6 +32,8 @@ public class DAOMemoria implements DAOFacade{
         
         public void init(){
             DAOArquivo.lerProdutos();
+            usuarios.add(new Caixa("caixa","a3cb966624ac67ed7d8e77c0f39ba36f"));
+            usuarios.add(new Estoque("estoque","6cfb561ab73cea537cdb793c22c1aa6f"));
         }
         
         @Override
@@ -53,9 +55,11 @@ public class DAOMemoria implements DAOFacade{
                 if( aux.getId() == produto.getId() ){
                     produtos.remove( aux );
                     produtos.add( produto );
+                    
                     return true;
-            }
+                }
         }
+    
         return false;
 	}
         @Override
@@ -69,18 +73,21 @@ public class DAOMemoria implements DAOFacade{
         }
         
         @Override
-        public boolean verifCredenciais(String login, String senha){
+        public int verifCredenciais(String login, String senha){
             for(User usr: usuarios){
+                
+                    
+                
                 if(usr instanceof Caixa){
-                    //abrir menu caixa
-                    return true;
+                    if( (((Caixa) usr).getLogin() ).compareTo(login)==0  &&  (((Caixa) usr).getSenha()).compareTo(senha)==0 ) 
+                        return 1;
                 }
                 if(usr instanceof Estoque){
-                    //abrir menu estoque
-                    return true;
+                    if( (((Estoque) usr).getLogin() ).compareTo(login)==0  &&  (((Estoque) usr).getSenha()).compareTo(senha)==0 ) 
+                        return 0;
                 }
             }
-            return false; 
+            return -1;
         }
 
     

@@ -16,60 +16,29 @@ public class NegocioFacade {
     public NegocioFacade() {
     }
 
-    public static boolean login(String login, String senha) {
+    public static int login(String login, String senha) {
         senha = Toolbox.encrypt(senha);
-        try {
-            boolean ok = registros.verifCredenciais(login, senha);
-            if (ok == false) {
-                throw new UsernotFound();
-            }
-            if (ok == true) {
-                return true;
-            }
-        } catch (UsernotFound e) {
-            System.out.println("Ocorreu um problema!");
-            e.printStackTrace();
-            return false;
-        }
-        return false;
+        return registros.verifCredenciais(login, senha);
+        
     }
 
-    public static boolean addProduto(Produto produto) {
-        //TODO
-        boolean status = true;
-        try {
-            int q = produto.getQuantidade();
-            if (q < 0) {
-                throw new QuantInvalida();
-            }
-        } catch (QuantInvalida ex) {
-            System.out.println("Ocorreu um problema!");
-            ex.printStackTrace();
-            status = false;
+    public static boolean addProduto(Produto produto) throws QuantInvalida, ProdjaRegistrado, ErroRegistrar {
+      
+
+        int q = produto.getQuantidade();
+        if (q < 0) {
+            throw new QuantInvalida();
         }
+
         for (Produto aux : registros.getProdutos()) {
-            try {
-                if (produto.getId() == aux.getId()) {
-                    throw new ProdjaRegistrado();
-                }
-            } catch (ProdjaRegistrado ex) {
-                System.out.println("Ocorreu um problema!");
-                ex.printStackTrace();
-                status = false;
+
+            if (produto.getId() == aux.getId()) {
+                throw new ProdjaRegistrado();
             }
+
         }
-        if (status == true) {
-            try {
-                boolean res = registros.addProduto(produto);
-                if (res == false) {
-                    throw new ErroRegistrar();
-                }
-            } catch (ErroRegistrar ex) {
-                System.out.println("Ocorreu um problema");
-                ex.printStackTrace();
-            }
-        }
-        return status;
+         return registros.addProduto(produto);
+           
     }
 
     /**
@@ -77,26 +46,21 @@ public class NegocioFacade {
      * @param produto
      * @return
      */
-    public static boolean editProduto(Produto produto) {
-        //TODO
-        boolean status = true;
-        boolean bol = registros.editProduto(produto);
-        try{
-            if(produto.getQuantidade() < 0)
-                throw new QuantInvalida();
-            else if(!bol){
-                throw new ProdNaoExiste();
-            }
-        } catch (QuantInvalida | ProdNaoExiste ex) {
-            System.out.println("Ocorreu um problema");
-            ex.printStackTrace();
-            status=false;
+    public static void editProduto(Produto produto) throws ProdNaoExiste, QuantInvalida {
+       
+        
+        
+        if(! registros.editProduto(produto) ){
+            throw new ProdNaoExiste();
         }
-        return status;
+        if (produto.getQuantidade() < 0) {
+            throw new QuantInvalida();
+        }    
+        
     }
 
-    public static void rmProduto(Produto produto) {
-        registros.rmProduto(produto);
+    public static void rmProduto(Produto produto) throws ProdNaoExiste {
+        if(!registros.rmProduto(produto)) throw new ProdNaoExiste();
     }
 
     public static void init() {
