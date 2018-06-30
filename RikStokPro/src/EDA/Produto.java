@@ -1,7 +1,7 @@
 package EDA;
-
+//TODO import javax.persistence.*;
 public class Produto {
-
+    
     private String nome;
 
     private int id;
@@ -17,6 +17,26 @@ public class Produto {
         this.valor = valor;
     }
 
+    public Produto() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
+    
     public String getNome() {
         return nome;
     }
@@ -33,4 +53,9 @@ public class Produto {
         return valor;
     }
 
+    @Override
+    public String toString() {
+        return "Produto{" + "nome=" + nome + ", id=" + id + ", quantidade=" + quantidade + ", valor=" + valor + '}';
+    }
+    
 }

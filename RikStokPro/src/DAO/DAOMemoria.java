@@ -1,8 +1,12 @@
 package DAO;
 
 import EDA.*;
+import java.io.IOException;
 
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.json.simple.*;
 
 public class DAOMemoria implements DAOFacade{
         private static DAOMemoria memoria;
@@ -22,10 +26,17 @@ public class DAOMemoria implements DAOFacade{
         private void DAOMemoria() {
             init();    
             
+            
+            
 	}
         
         public void init(){
-            //TODO inicializacao
+            DAOArquivo.lerProdutos();
+            try {
+                DAOArquivo.saveProdutos();
+            } catch (IOException ex) {
+                Logger.getLogger(DAOMemoria.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         
         @Override

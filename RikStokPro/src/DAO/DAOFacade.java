@@ -10,7 +10,7 @@ public interface DAOFacade {
 	public boolean rmProduto(Produto produto);
 	public boolean editProduto(Produto produto);
 	public ArrayList<Produto> getProdutos();
-        public ArrayList<User> getUser();
+        public ArrayList<User>getUser();
         
 
 }

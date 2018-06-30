@@ -8,6 +8,7 @@ import EDA.*;
 public class NegocioFacade {
 
 	static final DAOFacade registros = DAOMemoria.get();
+        static final DAOArquivo arquivos = DAOArquivo.get();
         
         private NegocioFacade(){}
 
@@ -64,5 +65,9 @@ public class NegocioFacade {
                     return produto;   
             }
             return null;
+        }
+        
+        public static void exit(){
+            
         }
 }
