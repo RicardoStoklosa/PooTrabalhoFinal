@@ -130,5 +130,10 @@ public class DAOArquivo implements DAOFacade{
     public ArrayList<User> getUser() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public boolean verifCredenciais(String login, String senha) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

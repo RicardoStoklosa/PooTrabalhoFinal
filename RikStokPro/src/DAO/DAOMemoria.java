@@ -67,6 +67,21 @@ public class DAOMemoria implements DAOFacade{
         public ArrayList<User> getUser() {
             return usuarios;
         }
+        
+        @Override
+        public boolean verifCredenciais(String login, String senha){
+            for(User usr: usuarios){
+                if(usr instanceof Caixa){
+                    //abrir menu caixa
+                    return true;
+                }
+                if(usr instanceof Estoque){
+                    //abrir menu estoque
+                    return true;
+                }
+            }
+            return false;
+        }
 
     
         
