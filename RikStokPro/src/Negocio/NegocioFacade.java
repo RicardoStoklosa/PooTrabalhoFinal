@@ -4,13 +4,14 @@ package Negocio;
 import DAO.*;
 import java.util.ArrayList;
 import EDA.*;
+import java.io.IOException;
 
 public class NegocioFacade {
 
 	static final DAOFacade registros = DAOMemoria.get();
         static final DAOArquivo arquivos = DAOArquivo.get();
         
-        private NegocioFacade(){}
+        public NegocioFacade(){}
 
 	public static boolean login(String login, String senha){
             senha = Toolbox.encrypt( senha );
@@ -67,7 +68,7 @@ public class NegocioFacade {
             return null;
         }
         
-        public static void exit(){
-            
+        public static void exit() throws IOException{
+            arquivos.saveProdutos();
         }
 }

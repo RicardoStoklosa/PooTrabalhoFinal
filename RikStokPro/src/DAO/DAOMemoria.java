@@ -32,11 +32,6 @@ public class DAOMemoria implements DAOFacade{
         
         public void init(){
             DAOArquivo.lerProdutos();
-            try {
-                DAOArquivo.saveProdutos();
-            } catch (IOException ex) {
-                Logger.getLogger(DAOMemoria.class.getName()).log(Level.SEVERE, null, ex);
-            }
         }
         
         @Override
