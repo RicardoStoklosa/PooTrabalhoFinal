@@ -108,7 +108,7 @@ public class Caixa extends javax.swing.JFrame {
 
         jLabel1.setText(":");
 
-        FinalizarCompra.setIcon(new javax.swing.ImageIcon("C:\\Users\\stokl\\Desktop\\PooTrabalhoFinal\\RikStokPro\\icons\\icons8-checkout-26.png")); // NOI18N
+        FinalizarCompra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-checkout-26.png"))); // NOI18N
         FinalizarCompra.setText("Finalizar Compra");
         FinalizarCompra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -165,7 +165,7 @@ public class Caixa extends javax.swing.JFrame {
                                 .addComponent(titulo)
                                 .addComponent(jButton1)))
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 559, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -246,10 +246,11 @@ public class Caixa extends javax.swing.JFrame {
     private void FinalizarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FinalizarCompraActionPerformed
         if(JOptionPane.showConfirmDialog(this, "Deseja realmente finalizar a compra?", "Finalizar compra", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE)==JOptionPane.YES_OPTION){
             //main estoque...
-            this.dispose();
+            //this.dispose();
             Lista.setListData(new String[0]);
+            mod.clear();
             valorTotal.setText("R$ "+ 0.0);
-            new Login().setVisible(true);
+            //new Login().setVisible(true);
         }
             
     }//GEN-LAST:event_FinalizarCompraActionPerformed
@@ -279,14 +280,14 @@ public class Caixa extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
-        new Login().setVisible(true);
+            
     }//GEN-LAST:event_formWindowClosed
 
 
     @Override
     public void setDefaultCloseOperation(int operation) {
-        super.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        new Login().setVisible(true);//To change body of generated methods, choose Tools | Templates.
+        super.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        //new Login().setVisible(true);//To change body of generated methods, choose Tools | Templates.
     }
     
     /**
