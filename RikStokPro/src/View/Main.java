@@ -32,6 +32,9 @@ public class Main {
     public static void main(String args[]) throws IOException{
        
         negocio.init();
+        estoque=new Estoque();
+        login.setVisible(true);
+        
         //addMenu.setVisible(true);
         
             //        negocio.addProduto(new Frios(-30.00, "presunto", 75, 45, 1.20));

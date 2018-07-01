@@ -29,7 +29,8 @@ public class Login extends javax.swing.JFrame {
             this.dispose();
         }
         else{
-            //TODO limpar tela
+            Main.caxa.setVisible(true);
+            this.dispose();
         }
     }
 
