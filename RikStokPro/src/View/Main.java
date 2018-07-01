@@ -25,27 +25,20 @@ public class Main {
     public static Login login = new Login();
     public static Caixa caxa = new Caixa();
     public static addMenu addMenu= new addMenu();
+    public static Estoque estoque ;
+    
+    
+    
     public static void main(String args[]) throws IOException{
        
         negocio.init();
-        caxa.setVisible(true);
-        //login.setVisible(true);
         //addMenu.setVisible(true);
         
             //        negocio.addProduto(new Frios(-30.00, "presunto", 75, 45, 1.20));
 //        negocio.addProduto(new Liquido(1.00, "leite", 64, 12, 2.20));
 //        negocio.addProduto(new Secos(10.00, "arroz", 15, 7, 4.00));
 //
-        try {        
-            negocio.addProduto(new Produto("oi", 0, -4, 0));
-        } catch (QuantInvalida ex) {
-            //mostra tela de erro
-            
-        } catch (ProdjaRegistrado ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ErroRegistrar ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
         ArrayList<Produto> produt= NegocioFacade.getProdutos();
         for( Produto prod : produt){
             System.out.println(prod);
