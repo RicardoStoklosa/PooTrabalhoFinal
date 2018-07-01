@@ -23,11 +23,14 @@ import java.util.logging.Logger;
 public class Main {
     public static NegocioFacade negocio = new NegocioFacade();
     public static Login login = new Login();
+    public static Caixa caxa = new Caixa();
     public static addMenu addMenu= new addMenu();
     public static void main(String args[]) throws IOException{
+       
         negocio.init();
+        caxa.setVisible(true);
         //login.setVisible(true);
-        addMenu.setVisible(true);
+        //addMenu.setVisible(true);
         
             //        negocio.addProduto(new Frios(-30.00, "presunto", 75, 45, 1.20));
 //        negocio.addProduto(new Liquido(1.00, "leite", 64, 12, 2.20));

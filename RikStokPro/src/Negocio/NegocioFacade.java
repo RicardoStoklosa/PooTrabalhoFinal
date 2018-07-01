@@ -79,6 +79,13 @@ public class NegocioFacade {
         }
         return null;
     }
+    
+    public static void retiradaEstoque(int id, int quant) throws QuantInvalida{
+        Produto d = getProdutosId(id);
+        if(quant>d.getQuantidade())
+            throw new QuantInvalida();
+        d.setQuantidade(d.getQuantidade()-quant);
+    }
 
     public static void exit() throws IOException {
         arquivos.saveProdutos();
