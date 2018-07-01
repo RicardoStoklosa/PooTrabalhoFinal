@@ -27,6 +27,8 @@ public class Caixa extends javax.swing.JFrame {
     JFrame close = new JFrame();
     DefaultListModel mod = new DefaultListModel();
     static Double valorfinal = 0.0;
+    int iddd=0;
+    int quantt=0;
 
     /**
      * Creates new form Caixa
@@ -203,21 +205,18 @@ public class Caixa extends javax.swing.JFrame {
             int idd = Integer.parseInt(id.getText());
             int quant = Integer.parseInt(JOptionPane.showInputDialog(this, "Quantos itens deseja?", "Quantidade", JOptionPane.QUESTION_MESSAGE));
             Produto add = Main.negocio.getProdutosId(idd);
-            
-            
-            try{
-                for (int i = 0; i < quant; i++) {
+            iddd=idd;
+            quantt=quant;
+            for (int i = 0; i < quant; i++) {
                     valorfinal = valorfinal + add.getValor();
                 }
-                Main.negocio.retiradaEstoque(idd, quant);
-                mod.addElement("Nome: " + add.getNome() + " -- Quantia restante: " + add.getQuantidade() + " -- Valor: R$" + add.getValor());
+                
+                mod.addElement("Nome: " + add.getNome() + " -- Quantia: " + quant + " -- Valor: R$" + add.getValor());
                 
                 Lista.setModel(mod);
                 id.setText("ID");
                 valorTotal.setText("R$ " + valorfinal);
-            } catch (QuantInvalida ex) {
-                JOptionPane.showMessageDialog(this, "Quantidade excede o máximo no estoque", "ERRO", JOptionPane.ERROR_MESSAGE);
-            }
+            
             
             
         } catch (ProdNotExist ex) {
@@ -247,6 +246,13 @@ public class Caixa extends javax.swing.JFrame {
         if(JOptionPane.showConfirmDialog(this, "Deseja realmente finalizar a compra?", "Finalizar compra", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE)==JOptionPane.YES_OPTION){
             //main estoque...
             //this.dispose();
+            try{
+                Main.negocio.retiradaEstoque(iddd, quantt);
+            } catch (QuantInvalida ex) {
+                JOptionPane.showMessageDialog(this, "Quantidade excede o máximo no estoque", "ERRO", JOptionPane.ERROR_MESSAGE);
+            }catch(ProdNotExist e){
+                JOptionPane.showMessageDialog(this, "Produto não existe!", "ERRO", JOptionPane.ERROR_MESSAGE);
+            }
             Lista.setListData(new String[0]);
             mod.clear();
             valorTotal.setText("R$ "+ 0.0);
