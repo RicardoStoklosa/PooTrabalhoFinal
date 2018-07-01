@@ -9,9 +9,12 @@ import EDA.*;
 import DAO.*;
 import Exceção.QuantInvalida;
 import Negocio.*;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,7 +22,7 @@ import javax.swing.JOptionPane;
  * @author gustavo
  */
 public class Caixa extends javax.swing.JFrame {
-
+    JFrame close = new JFrame();
     DefaultListModel mod = new DefaultListModel();
     static Double valorfinal = 0.0;
 
@@ -50,6 +53,11 @@ public class Caixa extends javax.swing.JFrame {
         FinalizarCompra = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         titulo.setFont(new java.awt.Font("FreeSans", 1, 24)); // NOI18N
         titulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icons8-carrinho-de-compras-26.png"))); // NOI18N
@@ -58,6 +66,8 @@ public class Caixa extends javax.swing.JFrame {
         jScrollPane1.setViewportView(Lista);
 
         nada1.setText("Valor total:");
+
+        valorTotal.setText("R$ 0.0");
 
         id.setText("ID");
         id.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -171,7 +181,7 @@ public class Caixa extends javax.swing.JFrame {
 
             Lista.setModel(mod);
             id.setText("ID");
-            valorTotal.setText("R$" + valorfinal);
+            valorTotal.setText("R$ " + valorfinal);
         } catch (QuantInvalida ex) {
             JOptionPane.showMessageDialog(this, "Quantidade excede o máximo no estoque", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
@@ -199,10 +209,24 @@ public class Caixa extends javax.swing.JFrame {
         if(JOptionPane.showConfirmDialog(this, "Deseja realmente finalizar a compra?", "Finalizar compra", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE)==JOptionPane.YES_OPTION){
             //main estoque...
             this.dispose();
+            Lista.setListData(new String[0]);
+            valorTotal.setText("R$ "+ 0.0);
+            Main.login.setVisible(true);
         }
             
     }//GEN-LAST:event_FinalizarCompraActionPerformed
 
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        Main.login.setVisible(true);
+    }//GEN-LAST:event_formWindowClosed
+
+
+    @Override
+    public void setDefaultCloseOperation(int operation) {
+        super.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        Main.login.setVisible(true);//To change body of generated methods, choose Tools | Templates.
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -238,6 +262,8 @@ public class Caixa extends javax.swing.JFrame {
 
         });
     }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton FinalizarCompra;
