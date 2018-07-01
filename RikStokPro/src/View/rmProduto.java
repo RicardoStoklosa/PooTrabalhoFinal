@@ -7,7 +7,7 @@ package View;
 
 import EDA.*;
 import Exceção.ErroRegistrar;
-import Exceção.ProdNaoExiste;
+import Exceção.ProdNotExist;
 import Exceção.ProdjaRegistrado;
 import Exceção.QuantInvalida;
 import java.awt.Color;
@@ -30,6 +30,7 @@ public class rmProduto extends javax.swing.JFrame {
      */
     public rmProduto() {
         initComponents();
+        clear();
     }
 
     public void clear() {
@@ -69,7 +70,7 @@ public class rmProduto extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         search = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("ADICIONAR PRODUTO");
         setAlwaysOnTop(true);
         setResizable(false);
@@ -104,7 +105,7 @@ public class rmProduto extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Impact", 0, 30)); // NOI18N
         jLabel6.setText("Remover Produto");
 
-        search.setIcon(new javax.swing.ImageIcon("C:\\Users\\stokl\\Desktop\\PooTrabalhoFinal\\RikStokPro\\icons\\icons8-search-15.png")); // NOI18N
+        search.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-search-15.png"))); // NOI18N
         search.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchActionPerformed(evt);
@@ -127,9 +128,9 @@ public class rmProduto extends javax.swing.JFrame {
                     .addComponent(id, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(search, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(58, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel6)
@@ -174,17 +175,19 @@ public class rmProduto extends javax.swing.JFrame {
     private void removeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeActionPerformed
         try{    
             Main.negocio.rmProduto(prod);
-            if (JOptionPane.showConfirmDialog(this, "Deseja remover o produtos:"+prod.getNome(), "?", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, new javax.swing.ImageIcon("C:\\Users\\stokl\\Desktop\\PooTrabalhoFinal\\RikStokPro\\icons\\token.png")) == 0) {
-                if (JOptionPane.showConfirmDialog(this, "Deseja remover mais produtos?", "?", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, new javax.swing.ImageIcon("C:\\Users\\stokl\\Desktop\\PooTrabalhoFinal\\RikStokPro\\icons\\token.png")) == 0) {
+            if (JOptionPane.showConfirmDialog(this, "Deseja remover o produtos:"+prod.getNome(), "?", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == 0) {
+                if (JOptionPane.showConfirmDialog(this, "Deseja remover mais produtos?", "?", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE ) == 0) {
                     clear();
                 } else {
                     Main.estoque.tabela();
                     this.dispose();
                 }
             }
-        } catch (ProdNaoExiste ex) {
+        } catch (ProdNotExist ex) {
             JOptionPane.showMessageDialog(this, "Produto nao existe!", "Erro", JOptionPane.OK_OPTION);
             id.setText("");
+        } catch (NumberFormatException ex){
+            JOptionPane.showMessageDialog(this, "Esperava Numero", "Tipo de dados incorretos", JOptionPane.ERROR_MESSAGE);
         }
 
         
@@ -193,6 +196,7 @@ public class rmProduto extends javax.swing.JFrame {
     }//GEN-LAST:event_removeActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Main.estoque.tabela();
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -201,9 +205,11 @@ public class rmProduto extends javax.swing.JFrame {
             prod = Main.negocio.getProdutosId(Integer.valueOf(id.getText()));
             found();
             remove.setEnabled(true);
-        } catch (ProdNaoExiste ex) {
+        } catch (ProdNotExist ex) {
             JOptionPane.showMessageDialog(this, "Produto nao existe!", "Erro", JOptionPane.OK_OPTION);
             id.setText("");
+        } catch (NumberFormatException ex){
+            JOptionPane.showMessageDialog(this, "Esperava Numero", "Tipo de dados incorretos", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_searchActionPerformed
 

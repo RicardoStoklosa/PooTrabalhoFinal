@@ -48,6 +48,8 @@ public class addMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jFileChooser1 = new javax.swing.JFileChooser();
+        jFrame1 = new javax.swing.JFrame();
         nome = new javax.swing.JTextField();
         id = new javax.swing.JTextField();
         quantidade = new javax.swing.JTextField();
@@ -66,7 +68,18 @@ public class addMenu extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jLabel6 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
+        jFrame1.getContentPane().setLayout(jFrame1Layout);
+        jFrame1Layout.setHorizontalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jFrame1Layout.setVerticalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("ADICIONAR PRODUTO");
         setAlwaysOnTop(true);
         setResizable(false);
@@ -251,12 +264,15 @@ public class addMenu extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Id de Produto ja registrado!", "Erro", JOptionPane.OK_OPTION);
         } catch (ErroRegistrar ex) {
             ex.printStackTrace();
+        } catch (NumberFormatException ex){
+            JOptionPane.showMessageDialog(this, "Esperava Numero", "Tipo de dados incorretos", JOptionPane.ERROR_MESSAGE);
         }
 
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Main.estoque.tabela();
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -301,6 +317,8 @@ public class addMenu extends javax.swing.JFrame {
     private javax.swing.JTextField id;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JFileChooser jFileChooser1;
+    private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -7,7 +7,7 @@ package View;
 
 import EDA.*;
 import DAO.*;
-import Exceção.ProdNaoExiste;
+import Exceção.ProdNotExist;
 import Exceção.QuantInvalida;
 import Negocio.*;
 import java.awt.event.WindowEvent;
@@ -220,7 +220,7 @@ public class Caixa extends javax.swing.JFrame {
             }
             
             
-        } catch (ProdNaoExiste ex) {
+        } catch (ProdNotExist ex) {
             JOptionPane.showMessageDialog(this, "Produto nao existe", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
 
@@ -271,7 +271,7 @@ public class Caixa extends javax.swing.JFrame {
         if (JOptionPane.showConfirmDialog(this, "Deseja fechar o programa?", "Fechar Programa", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
             try {
                 Main.negocio.exit();
-                this.dispose();
+                System.exit(0);
             } catch (IOException ex) {
                 Logger.getLogger(Caixa.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -284,11 +284,7 @@ public class Caixa extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosed
 
 
-    @Override
-    public void setDefaultCloseOperation(int operation) {
-        super.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-        //new Login().setVisible(true);//To change body of generated methods, choose Tools | Templates.
-    }
+   
     
     /**
      * @param args the command line arguments

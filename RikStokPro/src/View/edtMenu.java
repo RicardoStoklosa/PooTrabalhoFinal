@@ -7,7 +7,7 @@ package View;
 
 import EDA.*;
 import Exceção.ErroRegistrar;
-import Exceção.ProdNaoExiste;
+import Exceção.ProdNotExist;
 import Exceção.ProdjaRegistrado;
 import Exceção.QuantInvalida;
 import java.awt.Color;
@@ -98,7 +98,7 @@ public class edtMenu extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("ADICIONAR PRODUTO");
         setAlwaysOnTop(true);
         setResizable(false);
@@ -258,9 +258,11 @@ public class edtMenu extends javax.swing.JFrame {
         } catch (QuantInvalida ex) {
             JOptionPane.showMessageDialog(this, "Quantidade Invalida!", "Erro", JOptionPane.OK_OPTION);
             quantidade.setText("");
-        } catch (ProdNaoExiste ex) {
+        } catch (ProdNotExist ex) {
             JOptionPane.showMessageDialog(this, "Produto nao existe!", "Erro", JOptionPane.OK_OPTION);
             id.setText("");
+        } catch (NumberFormatException ex){
+            JOptionPane.showMessageDialog(this, "Esperava Numero", "Tipo de dados incorretos", JOptionPane.ERROR_MESSAGE);
         }
 
         
@@ -269,6 +271,7 @@ public class edtMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Main.estoque.tabela();
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -278,7 +281,7 @@ public class edtMenu extends javax.swing.JFrame {
             found();
             jButton3.setEnabled(false);
             jButton1.setEnabled(true);
-        } catch (ProdNaoExiste ex) {
+        } catch (ProdNotExist ex) {
             JOptionPane.showMessageDialog(this, "Produto nao existe!", "Erro", JOptionPane.OK_OPTION);
             id.setText("");
         }

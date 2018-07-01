@@ -8,6 +8,8 @@ package View;
 import EDA.*;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -34,6 +36,7 @@ public class Estoque extends javax.swing.JFrame {
     }
     
     public void tabela(){
+        NumberFormat formatter = new DecimalFormat("#0.00");
         
         ArrayList<Produto> produtos = Main.negocio.getProdutos();
         DefaultTableModel modelo = (DefaultTableModel) table.getModel();
@@ -102,7 +105,7 @@ public class Estoque extends javax.swing.JFrame {
         });
 
         table.setAutoCreateRowSorter(true);
-        table.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(240, 240, 240), null, null));
+        table.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
@@ -129,8 +132,10 @@ public class Estoque extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        table.setToolTipText("");
         table.setAutoscrolls(false);
         table.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        table.setRowSelectionAllowed(true);
         jScrollPane1.setViewportView(table);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-available-updates-26.png"))); // NOI18N
@@ -289,11 +294,7 @@ public class Estoque extends javax.swing.JFrame {
     }
     
 
-    @Override
-    public void setDefaultCloseOperation(int operation) {
-        super.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-        //To change body of generated methods, choose Tools | Templates.
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton;

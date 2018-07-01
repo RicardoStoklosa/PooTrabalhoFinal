@@ -9,9 +9,9 @@ package Exceção;
  *
  * @author gustavo
  */
-public class ProdNaoExiste extends Exception {
+public class ProdNotExist extends Exception {
 
-    public ProdNaoExiste() {
+    public ProdNotExist() {
     super();
     }
 
