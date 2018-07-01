@@ -22,9 +22,7 @@ import java.util.logging.Logger;
  */
 public class Main {
     public static NegocioFacade negocio = new NegocioFacade();
-    public static Login login = new Login();
-    public static Caixa caxa = new Caixa();
-    public static addMenu addMenu= new addMenu();
+    public static Caixa caixa;
     public static Estoque estoque ;
     
     
@@ -33,7 +31,8 @@ public class Main {
        
         negocio.init();
         estoque=new Estoque();
-        login.setVisible(true);
+        caixa = new Caixa();
+        new Login().setVisible(true);
         
         //addMenu.setVisible(true);
         
@@ -42,12 +41,8 @@ public class Main {
 //        negocio.addProduto(new Secos(10.00, "arroz", 15, 7, 4.00));
 //
         
-        ArrayList<Produto> produt= NegocioFacade.getProdutos();
-        for( Produto prod : produt){
-            System.out.println(prod);
-            
-        }
-       negocio.exit();
+        
+       
         
     }
     

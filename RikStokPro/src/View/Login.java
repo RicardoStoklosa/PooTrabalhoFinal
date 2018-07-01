@@ -15,8 +15,12 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        jSenha.setText("");
+        jLogin.setText("");
     }
     public  void check(){
+        
+        
         String nome = jLogin.getText();
         char password[] = jSenha.getPassword();
         String pass = String.valueOf( password );
@@ -29,7 +33,7 @@ public class Login extends javax.swing.JFrame {
             this.dispose();
         }
         else{
-            Main.caxa.setVisible(true);
+            Main.caixa.setVisible(true);
             this.dispose();
         }
     }

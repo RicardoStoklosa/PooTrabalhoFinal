@@ -109,6 +109,7 @@ public class DAOArquivo implements DAOFacade{
         } catch (ParseException ex) {
             ex.printStackTrace();
         }
+        System.err.println("Dados Salvos com sucesso!");
     }
 
     @Override
@@ -145,5 +146,5 @@ public class DAOArquivo implements DAOFacade{
     public int verifCredenciais(String login, String senha) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+        
 }

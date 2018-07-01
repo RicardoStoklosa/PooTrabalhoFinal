@@ -47,15 +47,14 @@ public class NegocioFacade {
      * @return
      */
     public static void editProduto(Produto produto) throws ProdNaoExiste, QuantInvalida {
-       
-        
-        
+
         if(! registros.editProduto(produto) ){
             throw new ProdNaoExiste();
         }
         if (produto.getQuantidade() < 0) {
             throw new QuantInvalida();
-        }    
+        }
+        
         
     }
 
@@ -71,16 +70,16 @@ public class NegocioFacade {
         return registros.getProdutos();
     }
 
-    public static Produto getProdutosId(int id) {
+    public static Produto getProdutosId(int id) throws ProdNaoExiste {
         for (Produto produto : NegocioFacade.registros.getProdutos()) {
             if (produto.getId() == id) {
                 return produto;
             }
         }
-        return null;
+        throw new ProdNaoExiste();
     }
     
-    public static void retiradaEstoque(int id, int quant) throws QuantInvalida{
+    public static void retiradaEstoque(int id, int quant) throws QuantInvalida, ProdNaoExiste{
         Produto d = getProdutosId(id);
         if(quant>d.getQuantidade())
             throw new QuantInvalida();

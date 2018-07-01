@@ -35,7 +35,7 @@ public class addMenu extends javax.swing.JFrame {
         quantidade.setText("");
         valor.setText("");
         exclusivo.setText("");
-        exclusivo.setEnabled(true);
+        exclusivo.setEnabled(false);
         combo.setSelectedIndex(0);
     }
 
