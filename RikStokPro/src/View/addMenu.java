@@ -228,13 +228,13 @@ public class addMenu extends javax.swing.JFrame {
         try {
             switch ((String) combo.getSelectedItem()) {
                 case "Liquido":
-                    Main.negocio.addProduto(new Liquido(Double.valueOf(exclusivo.getText()), nome.getText(), Integer.parseInt(id.getText()), Integer.parseInt(quantidade.getText()), Double.valueOf(quantidade.getText())));
+                    Main.negocio.addProduto(new Liquido(Double.valueOf(exclusivo.getText()), nome.getText(), Integer.parseInt(id.getText()), Integer.parseInt(quantidade.getText()), Double.valueOf(valor.getText())));
                     break;
                 case "Secos":
-                    Main.negocio.addProduto(new Secos(Double.valueOf(exclusivo.getText()), nome.getText(), Integer.parseInt(id.getText()), Integer.parseInt(quantidade.getText()), Double.valueOf(quantidade.getText())));
+                    Main.negocio.addProduto(new Secos(Double.valueOf(exclusivo.getText()), nome.getText(), Integer.parseInt(id.getText()), Integer.parseInt(quantidade.getText()), Double.valueOf(valor.getText())));
                     break;
                 case "Frios":
-                    Main.negocio.addProduto(new Frios(Double.valueOf(exclusivo.getText()), nome.getText(), Integer.parseInt(id.getText()), Integer.parseInt(quantidade.getText()), Double.valueOf(quantidade.getText())));
+                    Main.negocio.addProduto(new Frios(Double.valueOf(exclusivo.getText()), nome.getText(), Integer.parseInt(id.getText()), Integer.parseInt(quantidade.getText()), Double.valueOf(valor.getText())));
                     break;
             }
 

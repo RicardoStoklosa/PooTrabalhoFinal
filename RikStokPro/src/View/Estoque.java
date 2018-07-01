@@ -75,7 +75,7 @@ public class Estoque extends javax.swing.JFrame {
         setExtendedState(6);
 
         addButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        addButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\stokl\\Desktop\\PooTrabalhoFinal\\RikStokPro\\icons\\icons8-add-database-50.png")); // NOI18N
+        addButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-add-database-50.png"))); // NOI18N
         addButton.setText("Adcionar");
         addButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,7 +84,7 @@ public class Estoque extends javax.swing.JFrame {
         });
 
         editButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        editButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\stokl\\Desktop\\PooTrabalhoFinal\\RikStokPro\\icons\\icons8-database-administrator-50.png")); // NOI18N
+        editButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-database-administrator-50.png"))); // NOI18N
         editButton.setText("Editar");
         editButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,7 +93,7 @@ public class Estoque extends javax.swing.JFrame {
         });
 
         rmButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        rmButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\stokl\\Desktop\\PooTrabalhoFinal\\RikStokPro\\icons\\icons8-delete-database-50.png")); // NOI18N
+        rmButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-delete-database-50.png"))); // NOI18N
         rmButton.setText("Remover");
         rmButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,6 +101,7 @@ public class Estoque extends javax.swing.JFrame {
             }
         });
 
+        table.setAutoCreateRowSorter(true);
         table.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(240, 240, 240), null, null));
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -132,7 +133,7 @@ public class Estoque extends javax.swing.JFrame {
         table.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jScrollPane1.setViewportView(table);
 
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\stokl\\Desktop\\PooTrabalhoFinal\\RikStokPro\\icons\\icons8-available-updates-26.png")); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-available-updates-26.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -144,7 +145,7 @@ public class Estoque extends javax.swing.JFrame {
 
         jMenu1.setText("File");
 
-        jMenuItem2.setIcon(new javax.swing.ImageIcon("C:\\Users\\stokl\\Desktop\\PooTrabalhoFinal\\RikStokPro\\icons\\icons8-sign-out-15.png")); // NOI18N
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-sign-out-15.png"))); // NOI18N
         jMenuItem2.setText("Logout");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,7 +154,7 @@ public class Estoque extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem2);
 
-        jMenuItem1.setIcon(new javax.swing.ImageIcon("C:\\Users\\stokl\\Desktop\\PooTrabalhoFinal\\RikStokPro\\icons\\icons8-shutdown-15.png")); // NOI18N
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-shutdown-15.png"))); // NOI18N
         jMenuItem1.setText("Exit");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -232,6 +233,7 @@ public class Estoque extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(Estoque.class.getName()).log(Level.SEVERE, null, ex);
         }
+       
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed

@@ -147,7 +147,7 @@ public class edtMenu extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Impact", 0, 30)); // NOI18N
         jLabel6.setText("Editar Produto");
 
-        jButton3.setIcon(new javax.swing.ImageIcon("C:\\Users\\stokl\\Desktop\\PooTrabalhoFinal\\RikStokPro\\icons\\icons8-search-15.png")); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-search-15.png"))); // NOI18N
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
