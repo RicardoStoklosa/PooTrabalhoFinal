@@ -1,0 +1,23 @@
+{"peso":1.0,"litros":null,"valor":4.5,"nome":"feijao","id":3,"temperatura":null,"quantidade":1000}
+{"peso":1.0,"litros":null,"valor":3.99,"nome":"arroz","id":4,"temperatura":null,"quantidade":1000}
+{"peso":0.85,"litros":null,"valor":5.0,"nome":"banana","id":5,"temperatura":null,"quantidade":1000}
+{"peso":null,"litros":1.0,"valor":1.5,"nome":"agua","id":1,"temperatura":null,"quantidade":1000}
+{"peso":null,"litros":2.5,"valor":3.99,"nome":"refrigerante","id":2,"temperatura":null,"quantidade":1000}
+{"peso":null,"litros":null,"valor":25.5,"nome":"carne bovina","id":6,"temperatura":-20.0,"quantidade":1000}
+{"peso":null,"litros":null,"valor":19.9,"nome":"carne suina","id":7,"temperatura":-15.0,"quantidade":1000}
+{"peso":null,"litros":null,"valor":11.75,"nome":"frango","id":8,"temperatura":-10.0,"quantidade":1000}
+{"peso":1.0,"litros":null,"valor":5.0,"nome":"batata","id":9,"temperatura":null,"quantidade":1000}
+{"peso":1.0,"litros":null,"valor":4.5,"nome":"batata doce","id":10,"temperatura":null,"quantidade":1000}
+{"peso":null,"litros":0.33,"valor":5.0,"nome":"cerveja","id":11,"temperatura":null,"quantidade":1000}
+{"peso":null,"litros":0.5,"valor":20.0,"nome":"cerveja importada","id":12,"temperatura":null,"quantidade":500}
+{"peso":1.0,"litros":null,"valor":1.99,"nome":"farofa","id":13,"temperatura":null,"quantidade":1000}
+{"peso":1.0,"litros":null,"valor":51.39,"nome":"linguiça","id":14,"temperatura":null,"quantidade":1000}
+{"peso":null,"litros":null,"valor":21.15,"nome":"peixe","id":15,"temperatura":-10.0,"quantidade":1000}
+{"peso":1.0,"litros":null,"valor":5.35,"nome":"farinha de mandioca","id":16,"temperatura":null,"quantidade":10000}
+{"peso":null,"litros":null,"valor":8.0,"nome":"pizza","id":17,"temperatura":-5.0,"quantidade":1000}
+{"peso":null,"litros":null,"valor":2.15,"nome":"Iogurte","id":18,"temperatura":0.0,"quantidade":1000}
+{"peso":null,"litros":2.0,"valor":26.89,"nome":"sorvete","id":19,"temperatura":null,"quantidade":800}
+{"peso":0.25,"litros":null,"valor":9.85,"nome":"cobertura para sorvete","id":20,"temperatura":null,"quantidade":1000}
+{"peso":0.2,"litros":null,"valor":2.99,"nome":"bolacha","id":21,"temperatura":null,"quantidade":1000}
+{"peso":0.15,"litros":null,"valor":4.75,"nome":"bala","id":22,"temperatura":null,"quantidade":900}
+{"peso":0.083,"litros":null,"valor":4.85,"nome":"sardinha","id":23,"temperatura":null,"quantidade":700}
