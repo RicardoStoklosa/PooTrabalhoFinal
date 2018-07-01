@@ -249,7 +249,7 @@ public class edtMenu extends javax.swing.JFrame {
             if (prod instanceof Frios) {
                 Main.negocio.editProduto(new Frios(Double.valueOf(exclusivo.getText()), nome.getText(), Integer.parseInt(id.getText()), Integer.parseInt(quantidade.getText()), Double.valueOf(quantidade.getText())));
             }
-            if (JOptionPane.showConfirmDialog(this, "Deseja adcionar mais produtos?", "?", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, new javax.swing.ImageIcon("C:\\Users\\stokl\\Desktop\\PooTrabalhoFinal\\RikStokPro\\icons\\token.png")) == 0) {
+            if (JOptionPane.showConfirmDialog(this, "Deseja editar mais produtos?", "?", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, new javax.swing.ImageIcon("C:\\Users\\stokl\\Desktop\\PooTrabalhoFinal\\RikStokPro\\icons\\token.png")) == 0) {
                 clear();
             } else {
                 Main.estoque.tabela();

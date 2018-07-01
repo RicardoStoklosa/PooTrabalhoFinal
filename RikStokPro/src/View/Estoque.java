@@ -216,7 +216,7 @@ public class Estoque extends javax.swing.JFrame {
     }//GEN-LAST:event_editButtonActionPerformed
 
     private void rmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rmButtonActionPerformed
-        // TODO add your handling code here:
+        new rmProduto().setVisible(true);
     }//GEN-LAST:event_rmButtonActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
