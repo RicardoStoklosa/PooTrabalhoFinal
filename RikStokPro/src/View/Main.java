@@ -24,12 +24,13 @@ public class Main {
     public static NegocioFacade negocio = new NegocioFacade();
     public static Login login = new Login();
     public static addMenu addMenu= new addMenu();
-    public static Estoque estoque = new Estoque();
+    public static Estoque estoque ;
     
     
     
     public static void main(String args[]) throws IOException{
         negocio.init();
+        estoque = new Estoque();
         login.setVisible(true);
         //addMenu.setVisible(true);
         

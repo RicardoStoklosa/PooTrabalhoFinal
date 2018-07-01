@@ -29,6 +29,16 @@ public class addMenu extends javax.swing.JFrame {
         initComponents();
     }
 
+    public void clear() {
+        id.setText("");
+        nome.setText("");
+        quantidade.setText("");
+        valor.setText("");
+        exclusivo.setText("");
+        exclusivo.setEnabled(true);
+        combo.setSelectedIndex(0);
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -139,8 +149,7 @@ public class addMenu extends javax.swing.JFrame {
                                     .addComponent(combo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(exclusivo, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(13, 13, 13)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(28, 28, 28)
                                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
@@ -193,11 +202,11 @@ public class addMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void comboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboActionPerformed
-        if(evt.getSource() == combo){
+        if (evt.getSource() == combo) {
             exclusivo.setEnabled(true);
-            JComboBox cb  = (JComboBox)evt.getSource();
-            String x  = (String) cb.getSelectedItem();
-            switch(x){
+            JComboBox cb = (JComboBox) evt.getSource();
+            String x = (String) cb.getSelectedItem();
+            switch (x) {
                 case "Liquido":
                     tipoLabel.setText("Litros");
                     break;
@@ -216,17 +225,24 @@ public class addMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_formKeyTyped
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try{
-            switch((String) combo.getSelectedItem()){
+        try {
+            switch ((String) combo.getSelectedItem()) {
                 case "Liquido":
-                    Main.negocio.addProduto(new Liquido(Double.valueOf(exclusivo.getText()), nome.getText(),  Integer.parseInt(id.getText()), Integer.parseInt(quantidade.getText()), Double.valueOf(quantidade.getText())));
+                    Main.negocio.addProduto(new Liquido(Double.valueOf(exclusivo.getText()), nome.getText(), Integer.parseInt(id.getText()), Integer.parseInt(quantidade.getText()), Double.valueOf(quantidade.getText())));
                     break;
                 case "Secos":
-                    Main.negocio.addProduto(new Secos(Double.valueOf(exclusivo.getText()), nome.getText(),  Integer.parseInt(id.getText()), Integer.parseInt(quantidade.getText()), Double.valueOf(quantidade.getText())));
+                    Main.negocio.addProduto(new Secos(Double.valueOf(exclusivo.getText()), nome.getText(), Integer.parseInt(id.getText()), Integer.parseInt(quantidade.getText()), Double.valueOf(quantidade.getText())));
                     break;
                 case "Frios":
-                    Main.negocio.addProduto(new Frios(Double.valueOf(exclusivo.getText()), nome.getText(),  Integer.parseInt(id.getText()), Integer.parseInt(quantidade.getText()), Double.valueOf(quantidade.getText())));
-                    break;    
+                    Main.negocio.addProduto(new Frios(Double.valueOf(exclusivo.getText()), nome.getText(), Integer.parseInt(id.getText()), Integer.parseInt(quantidade.getText()), Double.valueOf(quantidade.getText())));
+                    break;
+            }
+
+            if (JOptionPane.showConfirmDialog(this, "Deseja adcionar mais produtos?", "?", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, new javax.swing.ImageIcon("C:\\Users\\stokl\\Desktop\\PooTrabalhoFinal\\RikStokPro\\icons\\token.png")) == 0) {
+                clear();
+            } else {
+                Main.estoque.tabela();
+                this.dispose();
             }
         } catch (QuantInvalida ex) {
             JOptionPane.showMessageDialog(this, "Quantidade Invalida!", "Erro", JOptionPane.OK_OPTION);
@@ -236,6 +252,8 @@ public class addMenu extends javax.swing.JFrame {
         } catch (ErroRegistrar ex) {
             ex.printStackTrace();
         }
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

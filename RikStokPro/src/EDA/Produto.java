@@ -11,9 +11,9 @@ public class Produto {
 
     private int quantidade;
 
-    private double valor;
+    private Double valor;
 
-    public Produto(String nome, int id, int quantidade, double valor) {
+    public Produto(String nome, int id, int quantidade, Double valor) {
         this.nome = nome;
         this.id = id;
         this.quantidade = quantidade;
@@ -53,7 +53,7 @@ public class Produto {
         return quantidade;
     }
 
-    public double getValor() {
+    public Double getValor() {
         return valor;
     }
 
