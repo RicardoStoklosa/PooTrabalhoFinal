@@ -5,6 +5,9 @@
  */
 package DAO;
 import EDA.*;
+import Exceção.ErroRegistrar;
+import Exceção.ProdjaRegistrado;
+import Exceção.QuantInvalida;
 import Negocio.NegocioFacade;
 import java.io.BufferedReader;
 import java.io.File;
@@ -80,14 +83,21 @@ public class DAOArquivo implements DAOFacade{
             BufferedReader buffer = new BufferedReader(file);
             while((line = buffer.readLine()) != null){
                 jobj = (JSONObject) parser.parse(line);
-               
+                try{
                 if(jobj.get("litros")!=null)
                     NegocioFacade.addProduto(new Liquido((Double) jobj.get("litros"), (String)jobj.get("nome"), ((Long)jobj.get("id")).intValue(), ((Long)jobj.get("quantidade")).intValue(), (Double)jobj.get("valor")));
                 if(jobj.get("peso")!=null)
                     NegocioFacade.addProduto(new Secos(((Double)jobj.get("peso")), (String) jobj.get("nome"), ((Long)jobj.get("id")).intValue(), ((Long)jobj.get("quantidade")).intValue(), (Double)jobj.get("valor")));
                 if(jobj.get("temperatura")!=null)
                     NegocioFacade.addProduto(new Frios((Double)jobj.get("temperatura"), (String) jobj.get("nome"), ((Long)jobj.get("id")).intValue(), ((Long)jobj.get("quantidade")).intValue(), (Double)jobj.get("valor")));
-                
+                }
+                catch(QuantInvalida q){
+                    q.printStackTrace();
+                } catch (ProdjaRegistrado ex) {
+                    ex.printStackTrace();
+                } catch (ErroRegistrar ex) {
+                    ex.printStackTrace();
+                }
                 
                 
                 
@@ -99,6 +109,7 @@ public class DAOArquivo implements DAOFacade{
         } catch (ParseException ex) {
             ex.printStackTrace();
         }
+        System.err.println("Dados Salvos com sucesso!");
     }
 
     @Override
@@ -130,5 +141,10 @@ public class DAOArquivo implements DAOFacade{
     public ArrayList<User> getUser() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
+    @Override
+    public int verifCredenciais(String login, String senha) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+        
 }

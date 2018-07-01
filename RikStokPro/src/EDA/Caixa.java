@@ -6,7 +6,9 @@ public class Caixa extends User {
 
 	private String senha;
 
-	public void Caixa(String login, String senha) {
+    
+
+	public  Caixa(String login, String senha) {
             this.login = login;
             this.senha = senha;
         

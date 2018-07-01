@@ -1,74 +1,92 @@
 package Negocio;
 
-
 import DAO.*;
 import java.util.ArrayList;
 import EDA.*;
 import java.io.IOException;
+import Exceção.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class NegocioFacade {
 
-	static final DAOFacade registros = DAOMemoria.get();
-        static final DAOArquivo arquivos = DAOArquivo.get();
+    static final DAOFacade registros = DAOMemoria.get();
+    static final DAOArquivo arquivos = DAOArquivo.get();
+
+    public NegocioFacade() {
+    }
+
+    public static int login(String login, String senha) {
+        senha = Toolbox.encrypt(senha);
+        return registros.verifCredenciais(login, senha);
         
-        public NegocioFacade(){}
+    }
 
-	public static boolean login(String login, String senha){
-            senha = Toolbox.encrypt( senha );
-            //TODO boolean adm = registros.verificarCredenciais( login, senha );
-            return false;
-        }
-        
-	public static Operacao addProduto(Produto produto) {
-            //TODO
-		Operacao status = new Operacao();
-                if(produto.getQuantidade() < 0)
-                    status.anexarErro("Quantidade Invalida");
-                
-                for(Produto aux : registros.getProdutos()){
-                    if(produto.getId() == aux.getId()){
-                        status.anexarErro("Código de produto já registrado");
-                        break;
-                    }
-                }
-                if( status.getStatus() ){
-                    boolean res = registros.addProduto( produto );
-                    if( res == false )
-                        status.anexarErro("Erro ao registrar dados do Produto!");
-                    }
-                return status;
-	}
+    public static boolean addProduto(Produto produto) throws QuantInvalida, ProdjaRegistrado, ErroRegistrar {
+      
 
+        int q = produto.getQuantidade();
+        if (q < 0) {
+            throw new QuantInvalida();
+        }
 
-	public static Operacao editProduto(Produto produto) {
-            //TODO
-            Operacao status = new Operacao();
-            boolean bol = registros.editProduto(produto);
-            if(produto.getQuantidade() < 0)
-                    status.anexarErro("Quantidade Invalida");
-            if(!bol)
-                    status.anexarErro("Produto nao existe");
-            
-            return status;
-	}
-        public static void rmProduto(Produto produto) {
-            registros.rmProduto(produto);
-        }
-        public static void init(){
-            registros.init();
-        }
-        public static ArrayList<Produto> getProdutos(){  
-            return registros.getProdutos();
-        }
-        public static Produto getProdutosId(int id){
-            for( Produto produto : NegocioFacade.registros.getProdutos() ){
-                if( produto.getId() == id )
-                    return produto;   
+        for (Produto aux : registros.getProdutos()) {
+
+            if (produto.getId() == aux.getId()) {
+                throw new ProdjaRegistrado();
             }
-            return null;
+
+        }
+         return registros.addProduto(produto);
+           
+    }
+
+    /**
+     *
+     * @param produto
+     * @return
+     */
+    public static void editProduto(Produto produto) throws ProdNotExist, QuantInvalida {
+
+        if(! registros.editProduto(produto) ){
+            throw new ProdNotExist();
+        }
+        if (produto.getQuantidade() < 0) {
+            throw new QuantInvalida();
         }
         
-        public static void exit() throws IOException{
-            arquivos.saveProdutos();
+        
+    }
+
+    public static void rmProduto(Produto produto) throws ProdNotExist {
+        if(!registros.rmProduto(produto)) throw new ProdNotExist();
+    }
+
+    public static void init() {
+        registros.init();
+    }
+
+    public static ArrayList<Produto> getProdutos() {
+        return registros.getProdutos();
+    }
+
+    public static Produto getProdutosId(int id) throws ProdNotExist {
+        for (Produto produto : NegocioFacade.registros.getProdutos()) {
+            if (produto.getId() == id) {
+                return produto;
+            }
         }
+        throw new ProdNotExist();
+    }
+    
+    public static void retiradaEstoque(int id, int quant) throws QuantInvalida, ProdNotExist{
+        Produto d = getProdutosId(id);
+        if(quant>d.getQuantidade())
+            throw new QuantInvalida();
+        d.setQuantidade(d.getQuantidade()-quant);
+    }
+
+    public static void exit() throws IOException {
+        arquivos.saveProdutos();
+    }
 }

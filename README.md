@@ -1,1 +1,2 @@
-# ams_trabalho_final
+# Trabalho Final Poo
+###### Alunos: Ricardo Stoklosa, Gustavo Daniel
