@@ -39,22 +39,29 @@ public class Estoque extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setExtendedState(6);
 
-        addButton.setText("jButton1");
+        addButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        addButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\stokl\\Desktop\\PooTrabalhoFinal\\RikStokPro\\icons\\icons8-add-database-50.png")); // NOI18N
+        addButton.setText("Adcionar");
         addButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addButtonActionPerformed(evt);
             }
         });
 
-        editButton.setText("jButton2");
+        editButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        editButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\stokl\\Desktop\\PooTrabalhoFinal\\RikStokPro\\icons\\icons8-database-administrator-50.png")); // NOI18N
+        editButton.setText("Editar");
         editButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editButtonActionPerformed(evt);
             }
         });
 
-        rmButton.setText("jButton3");
+        rmButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        rmButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\stokl\\Desktop\\PooTrabalhoFinal\\RikStokPro\\icons\\icons8-delete-database-50.png")); // NOI18N
+        rmButton.setText("Remover");
         rmButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rmButtonActionPerformed(evt);
@@ -138,10 +145,11 @@ public class Estoque extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-        // TODO add your handling code here:
+        Main.addMenu.setVisible(true);
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed

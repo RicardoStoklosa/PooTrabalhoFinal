@@ -25,7 +25,7 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "O nome de usuário e/ou a senha não estão corretas!", "Erro no Login", JOptionPane.ERROR_MESSAGE);
         }
         else if(chs == 0){
-            //TODO
+            Main.estoque.setVisible(true);
             this.dispose();
         }
         else{
@@ -50,6 +50,8 @@ public class Login extends javax.swing.JFrame {
         jOkLogin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAlwaysOnTop(true);
+        setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Ubuntu", 0, 36)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -111,7 +113,7 @@ public class Login extends javax.swing.JFrame {
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jOkLogin)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         pack();
