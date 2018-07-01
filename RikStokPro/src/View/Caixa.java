@@ -7,10 +7,12 @@ package View;
 
 import EDA.*;
 import DAO.*;
+import Exceção.ProdNaoExiste;
 import Exceção.QuantInvalida;
 import Negocio.*;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
@@ -195,23 +197,29 @@ public class Caixa extends javax.swing.JFrame {
     }//GEN-LAST:event_idActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        int idd = Integer.parseInt(id.getText());
-        int quant = Integer.parseInt(JOptionPane.showInputDialog(this, "Quantos itens deseja?", "Quantidade", JOptionPane.QUESTION_MESSAGE));
-        Produto add = Main.negocio.getProdutosId(idd);
-        
+        try{                                         
+            int idd = Integer.parseInt(id.getText());
+            int quant = Integer.parseInt(JOptionPane.showInputDialog(this, "Quantos itens deseja?", "Quantidade", JOptionPane.QUESTION_MESSAGE));
+            Produto add = Main.negocio.getProdutosId(idd);
             
-        try{
-            for (int i = 0; i < quant; i++) {
-                valorfinal = valorfinal + add.getValor();
+            
+            try{
+                for (int i = 0; i < quant; i++) {
+                    valorfinal = valorfinal + add.getValor();
+                }
+                Main.negocio.retiradaEstoque(idd, quant);
+                mod.addElement("Nome: " + add.getNome() + " -- Quantia restante: " + add.getQuantidade() + " -- Valor: R$" + add.getValor());
+                
+                Lista.setModel(mod);
+                id.setText("ID");
+                valorTotal.setText("R$ " + valorfinal);
+            } catch (QuantInvalida ex) {
+                JOptionPane.showMessageDialog(this, "Quantidade excede o máximo no estoque", "ERRO", JOptionPane.ERROR_MESSAGE);
             }
-            Main.negocio.retiradaEstoque(idd, quant);
-            mod.addElement("Nome: " + add.getNome() + " -- Quantia restante: " + add.getQuantidade() + " -- Valor: R$" + add.getValor());
-
-            Lista.setModel(mod);
-            id.setText("ID");
-            valorTotal.setText("R$ " + valorfinal);
-        } catch (QuantInvalida ex) {
-            JOptionPane.showMessageDialog(this, "Quantidade excede o máximo no estoque", "ERRO", JOptionPane.ERROR_MESSAGE);
+            
+            
+        } catch (ProdNaoExiste ex) {
+            JOptionPane.showMessageDialog(this, "Produto nao existe", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
 
 
@@ -239,7 +247,7 @@ public class Caixa extends javax.swing.JFrame {
             this.dispose();
             Lista.setListData(new String[0]);
             valorTotal.setText("R$ "+ 0.0);
-            Main.login.setVisible(true);
+            new Login().setVisible(true);
         }
             
     }//GEN-LAST:event_FinalizarCompraActionPerformed
@@ -269,14 +277,14 @@ public class Caixa extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
-        Main.login.setVisible(true);
+        new Login().setVisible(true);
     }//GEN-LAST:event_formWindowClosed
 
 
     @Override
     public void setDefaultCloseOperation(int operation) {
         super.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        Main.login.setVisible(true);//To change body of generated methods, choose Tools | Templates.
+        new Login().setVisible(true);//To change body of generated methods, choose Tools | Templates.
     }
     
     /**

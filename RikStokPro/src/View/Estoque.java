@@ -290,7 +290,7 @@ public class Estoque extends javax.swing.JFrame {
     @Override
     public void setDefaultCloseOperation(int operation) {
         super.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        Main.login.setVisible(true);//To change body of generated methods, choose Tools | Templates.
+        new Login().setVisible(true);//To change body of generated methods, choose Tools | Templates.
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
