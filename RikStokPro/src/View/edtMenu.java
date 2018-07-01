@@ -241,13 +241,13 @@ public class edtMenu extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try{    
             if (prod instanceof Liquido) {
-                Main.negocio.editProduto(new Liquido(Double.valueOf(exclusivo.getText()), nome.getText(), Integer.parseInt(id.getText()), Integer.parseInt(quantidade.getText()), Double.valueOf(quantidade.getText())));
+                Main.negocio.editProduto(new Liquido(Double.valueOf(exclusivo.getText()), nome.getText(), Integer.parseInt(id.getText()), Integer.parseInt(quantidade.getText()), Double.valueOf(valor.getText())));
             }
             if (prod instanceof Secos) {
-                Main.negocio.editProduto(new Secos(Double.valueOf(exclusivo.getText()), nome.getText(), Integer.parseInt(id.getText()), Integer.parseInt(quantidade.getText()), Double.valueOf(quantidade.getText())));
+                Main.negocio.editProduto(new Secos(Double.valueOf(exclusivo.getText()), nome.getText(), Integer.parseInt(id.getText()), Integer.parseInt(quantidade.getText()), Double.valueOf(valor.getText())));
             }
             if (prod instanceof Frios) {
-                Main.negocio.editProduto(new Frios(Double.valueOf(exclusivo.getText()), nome.getText(), Integer.parseInt(id.getText()), Integer.parseInt(quantidade.getText()), Double.valueOf(quantidade.getText())));
+                Main.negocio.editProduto(new Frios(Double.valueOf(exclusivo.getText()), nome.getText(), Integer.parseInt(id.getText()), Integer.parseInt(quantidade.getText()), Double.valueOf(valor.getText())));
             }
             if (JOptionPane.showConfirmDialog(this, "Deseja editar mais produtos?", "?", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, new javax.swing.ImageIcon("C:\\Users\\stokl\\Desktop\\PooTrabalhoFinal\\RikStokPro\\icons\\token.png")) == 0) {
                 clear();
