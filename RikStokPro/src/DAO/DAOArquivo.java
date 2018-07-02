@@ -32,7 +32,7 @@ import org.json.simple.parser.ParseException;
  *
  * @author stokl
  */
-public class DAOArquivo implements DAOFacade{
+public class DAOArquivo {
     private static DAOArquivo arquivo;
     
    public static DAOArquivo get() {
@@ -111,40 +111,5 @@ public class DAOArquivo implements DAOFacade{
         }
         System.err.println("Dados Salvos com sucesso!");
     }
-
-    @Override
-    public void init() {
-        throw new UnsupportedOperationException("Not supported yet."); 
-    }
-
-    @Override
-    public boolean addProduto(Produto produto) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public boolean rmProduto(Produto produto) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public boolean editProduto(Produto produto) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public ArrayList<Produto> getProdutos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public ArrayList<User> getUser() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public int verifCredenciais(String login, String senha) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-        
+  
 }
