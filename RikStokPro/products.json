@@ -1,7 +1,7 @@
 {"peso":1.0,"litros":null,"valor":4.5,"nome":"feijao","id":3,"temperatura":null,"quantidade":1000}
 {"peso":1.0,"litros":null,"valor":3.99,"nome":"arroz","id":4,"temperatura":null,"quantidade":1000}
 {"peso":0.85,"litros":null,"valor":5.0,"nome":"banana","id":5,"temperatura":null,"quantidade":1000}
-{"peso":null,"litros":1.0,"valor":1.5,"nome":"agua","id":1,"temperatura":null,"quantidade":900}
+{"peso":null,"litros":1.0,"valor":1.5,"nome":"agua","id":1,"temperatura":null,"quantidade":1000}
 {"peso":null,"litros":2.5,"valor":3.99,"nome":"refrigerante","id":2,"temperatura":null,"quantidade":1000}
 {"peso":null,"litros":null,"valor":25.5,"nome":"carne bovina","id":6,"temperatura":-20.0,"quantidade":1000}
 {"peso":null,"litros":null,"valor":19.9,"nome":"carne suina","id":7,"temperatura":-15.0,"quantidade":1000}
