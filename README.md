@@ -1,8 +1,13 @@
 
 # Trabalho Final Poo  
 
-> Trabalho final da matéria de Programação orientada a Objetos  
+> Sistema de estoque e caixa feito em java e swing
 
+# O que eu aprendi?
+  
+  - Orientação a objetos
+  - java
+  
 
 ###### Alunos: Ricardo Stoklosa, Gustavo Daniel
 <!--stackedit_data:
